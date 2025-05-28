@@ -33,7 +33,7 @@ REDatlas requires the following:
 Install dependencies using:
 
 ```bash
-pip install streamlit numpy pandas matplotlib
+pip install streamlit numpy pandas matplotlib folium requests openpyxl
 ```
 
 
@@ -42,7 +42,7 @@ pip install streamlit numpy pandas matplotlib
 Clone the repository and navigate to the project directory:
 
 ```bash
-git clone https://github.com/your-username/REDatlas.git
+git clone https://github.com/wf-TRs/REDatlas.git
 cd REDatlas
 ```
 
@@ -115,12 +115,13 @@ If you use REDatlas in your research, please cite:
 > Indhu Shree Rajan Babu, Readman Chiu, Ben Weisburd, Iris Caglayan, Heidi L. Rehm, Inanc Birol, Jan M. Friedman. Population-Level Characterization of Disease-Associated Tandem Repeat Loci in Long-Read Diploid Assemblies: Integrating Genotype, Sequence, Phylogenetic, and Local Ancestry Analyses, and Linkage Disequilibrium Structure.
 
 
-## Contributing
+## Authors
 
-We welcome contributions to REDatlas!  
-If you encounter any issues or have suggestions for improvements, please open a GitHub issue.
+- **Indhu Shree Rajan Babu** — Project lead, data curation, and supervision  
+- **Iris Caglayan** — Primary developer and code author
+
 
 ## Contact
 
-For collaborations or other inquiries, you can reach out to:  
+For questions or collaborations, please contact:  
 **Indhu Shree Rajan Babu** — [indhu.babu@bcchr.ca](mailto:indhu.babu@bcchr.ca)
