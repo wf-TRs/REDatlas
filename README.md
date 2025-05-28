@@ -93,3 +93,10 @@ ssh -L 8501:localhost:8501 <login-node> -t ssh -L 8501:localhost:8501 <compute-n
 3. **Access the app in your browser**
 
 Open your web browser and navigate to: (http://localhost:8501)
+
+
+## Citation
+
+If you use REDatlas in your research, please cite:
+
+> Indhu Shree Rajan Babu, Readman Chiu et al. Population-Level Characterization of Disease-Associated Tandem Repeat Loci in Long-Read Diploid Assemblies: Integrating Genotype, Sequence, Phylogenetic, and Local Ancestry Analyses, and Linkage Disequilibrium Structure.
