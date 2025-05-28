@@ -117,8 +117,8 @@ If you use REDatlas in your research, please cite:
 
 ## Authors
 
-- **Indhu Shree Rajan Babu** — Project lead, data curation, and supervision  
 - **Iris Caglayan** — Primary developer and code author
+- **Indhu Shree Rajan Babu** — Project lead, data curation, and supervision
 
 
 ## Contact
