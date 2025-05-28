@@ -34,6 +34,7 @@ Install dependencies using:
 
 ```bash
 pip install streamlit numpy pandas matplotlib
+```
 
 
 ### 2. Cloning the Repository
@@ -43,7 +44,7 @@ Clone the repository and navigate to the project directory:
 ```bash
 git clone https://github.com/your-username/REDatlas.git
 cd REDatlas
-
+```
 
 ### 3. Set Up the Database
 
@@ -52,7 +53,7 @@ Create and populate the SQLite database by running:
 ```bash
 sqlite3 data.sqlite < schema.sql
 python load_database.py
-
+```
 
 ### 4. Launch the Streamlit App
 
@@ -60,3 +61,4 @@ Start the interactive REDatlas map with:
 
 ```bash
 streamlit run final_map.py
+```
