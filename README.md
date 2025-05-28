@@ -115,6 +115,12 @@ If you use REDatlas in your research, please cite:
 > Indhu Shree Rajan Babu, Readman Chiu, Ben Weisburd, Iris Caglayan, Heidi L. Rehm, Inanc Birol, Jan M. Friedman. Population-Level Characterization of Disease-Associated Tandem Repeat Loci in Long-Read Diploid Assemblies: Integrating Genotype, Sequence, Phylogenetic, and Local Ancestry Analyses, and Linkage Disequilibrium Structure.
 
 
+## Contributing
+
+We welcome contributions to REDatlas!  
+If you encounter any issues or have suggestions for improvements, please open a GitHub issue.
+
 ## Contact
 
-For issues or contributions, open a GitHub issue or contact: Indhu Shree Rajan Babu - [indhu.babu@bcchr.ca](mailto\:indhu.babu@bcchr.ca)
+For collaborations or other inquiries, you can reach out to:  
+**Indhu Shree Rajan Babu** — [indhu.babu@bcchr.ca](mailto:indhu.babu@bcchr.ca)
