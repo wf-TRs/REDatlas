@@ -1,6 +1,6 @@
 # REDatlas: Mapping the Global Distribution of Repeat Expansion Disorders
 
-**REDatlas** is an interactive resource that visualizes the **geographic distribution** of **Repeat Expansion Disorders (REDs)** worldwide. This tool aggregates reported cases from the literature, links each disorder to relevant clinical and genomic resources, and displays population-level patterns through a user-friendly map interface.
+**REDatlas** is an interactive resource that visualizes the **geographic distribution** of **Repeat Expansion Disorders (REDs)** worldwide.
 
 Explore:
 - Geographic regions where REDs have been reported
@@ -62,3 +62,34 @@ Start the interactive REDatlas map with:
 ```bash
 streamlit run final_map.py
 ```
+
+You can now view your Streamlit app in your browser at: (http://localhost:8501)
+
+### Accessing the App on a Remote Compute Cluster
+
+If you are running the Streamlit app on a remote compute cluster, follow these steps to run the app and access it locally via SSH port forwarding:
+
+1. **Request resources and launch the app on the cluster**
+
+   SSH into your cluster login node, then run:
+
+   ```bash
+   salloc --time=2:00:00 --mem=4G --cpus-per-task=2  # Adjust resource request as needed
+   ```
+   
+ Once allocated, start the Streamlit app on the compute node:
+    ```bash
+    streamlit run final_map.py
+    ```
+    
+2. **Create an SSH tunnel from your local machine**
+
+Open a new terminal on your local computer and run:
+
+```bash
+ssh -L 8501:localhost:8501 <login-node> -t ssh -L 8501:localhost:8501 <compute-node>
+```
+
+3. **Access the app in your browser**
+
+Open your web browser and navigate to: (http://localhost:8501)
