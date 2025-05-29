@@ -134,4 +134,4 @@ We gratefully acknowledge the following resources that made REDatlas possible:
 - **Geodata:** Country boundary polygons are derived from [Natural Earth](https://www.naturalearthdata.com/), via the [datasets/geo-boundaries-world-110m](https://github.com/datasets/geo-boundaries-world-110m) GeoJSON package.  
   Licensed under the [Open Data Commons Public Domain Dedication and License (PDDL)](https://opendatacommons.org/licenses/pddl/).
 
-We thank Natural Earth and the Open Knowledge Foundation for making this data openly available.
+We thank Natural Earth, Lexman, and the Open Knowledge Foundation for making this data openly available.
