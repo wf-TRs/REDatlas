@@ -1,0 +1,41 @@
+import sqlite3
+import pandas as pd
+
+repid_df = pd.read_excel('repid.xlsx')
+repid_df_cleaned = repid_df.drop(columns=["DiseaseName"])
+
+# Drop duplicate RepidName entries, keeping the first occurrence
+repid_df_cleaned = repid_df_cleaned.drop_duplicates(subset="RepidName", keep="first").reset_index(drop=True)
+
+repid_df_cleaned['Link'] = repid_df_cleaned.apply(
+    lambda row: f'<a href="{row["Link"]}" target="_blank">{row["LinkName"]}</a>',
+    axis=1
+)
+
+disease_df = repid_df[['RepidName', 'DiseaseName']]
+
+region_df = pd.read_excel('coordinate_info.xlsx')
+region_df[["Latitude","Longitude"]] = region_df['Coordinates'].str.split(",",expand=True)
+region_df['Longitude'] = region_df["Longitude"].astype(float)
+region_df['Latitude'] = region_df['Latitude'].astype(float)
+region_df['Frequency'] = region_df['Frequency'].astype(float)
+
+
+
+
+# Step 1: Connect to your SQLite database (use the same file name you used before)
+conn = sqlite3.connect('data.sqlite')  # This creates or opens the .db file
+repid_df_cleaned.to_sql('Repid', conn, if_exists = "append", index = False)
+
+repids_from_db = pd.read_sql_query("SELECT RepID, RepidName FROM Repid", conn)
+
+
+
+disease_df = disease_df.merge(repids_from_db, on = "RepidName", how = 'left')
+disease_df[["DiseaseName", "RepID"]].to_sql("Disease", conn, if_exists = 'replace', index = False)
+
+region_df = region_df.merge(repids_from_db, on = "RepidName", how = 'left')
+
+region_df[['Latitude', 'Longitude', 'RepID','Frequency' ]].to_sql('Region', conn, if_exists = 'replace', index= False)
+
+conn.close()
