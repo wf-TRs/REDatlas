@@ -35,7 +35,7 @@ def show_color_legend(color_map):
         )
 
 def get_regions(repids, diseases):
-    conn = sqlite3.connect("repid.db")
+    conn = sqlite3.connect("data.sqlite")
     conditions = []
     params = []
     if repids:
@@ -85,7 +85,7 @@ def style_function(feature):
 # --- Streamlit UI ---
 st.title("Disease Region Explorer")
 
-conn = sqlite3.connect("repid.db")
+conn = sqlite3.connect("data.sqlite")
 repid_options = pd.read_sql_query("SELECT DISTINCT RepidName FROM Repid", conn)["RepidName"].dropna().unique().tolist()
 disease_options = pd.read_sql_query("SELECT DISTINCT DiseaseName FROM Disease", conn)["DiseaseName"].dropna().unique().tolist()
 conn.close()
