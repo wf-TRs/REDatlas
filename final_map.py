@@ -172,7 +172,7 @@ if final_repids or final_diseases:
             """
             if row['IntermediateRange'] != "-":
                 popup_content += f" <b>Intermediate Range:</b> {row['IntermediateRange']}<br>"
-            elif row['FullMutationRange'] != "-":
+            if pd.notna("FullMUtationRange"):
                 popup_content += f" <b>Full Mutation Range:</b> {row['FullMutationRange']}"
             radius(row)
             folium.CircleMarker(
