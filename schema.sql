@@ -20,12 +20,11 @@ CREATE TABLE Repid (
     RepID INTEGER PRIMARY KEY AUTOINCREMENT,
     RepidName VARCHAR(100), 
     Inheritance TEXT,
+    RepeatLocation TEXT,
     NormalRange TEXT,
     IntermediateRange TEXT,
 	FullMutationRange TEXT,
     Link TEXT,
-    LinkName TEXT,
-    Location TEXT,
     Unique(RepidName)
 );
 

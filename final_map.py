@@ -56,7 +56,7 @@ def get_regions(repids, diseases):
     where_clause = ' OR '.join(conditions)
 
     sql = f"""
-        SELECT DISTINCT r.Latitude, r.Longitude, d.DiseaseName, re.RepidName, re.Link,
+        SELECT DISTINCT r.Latitude, r.Longitude, d.DiseaseName, re.RepidName, re.Link, re.RepeatLocation, 
                re.NormalRange, re.IntermediateRange, re.FullMutationRange, r.Frequency
         FROM Region r
         JOIN Repid re ON re.RepID = r.RepID
@@ -139,15 +139,17 @@ continent_colors = {
 
 def radius(row):
     if pd.notna(row["Frequency"]):
-        radius = row["Frequency"]
+        radius = row["Frequency"] + 3.5
     else:
-        radius = 6
+        radius = 3
     return radius
 
 if final_repids or final_diseases:
     color_map,name, results = get_regions(final_repids, final_diseases)
     with col3:
         show_color_legend(color_map)
+    
+
     if results.empty:
         st.warning("No matching records found.")
     else:
@@ -163,14 +165,14 @@ if final_repids or final_diseases:
 
         for _, row in results.iterrows():
             popup_content = f"""
-                <b>{row['DiseaseName']}</b><br>
-                {row['RepidName']}<br>
+                <h3>{row['DiseaseName']}</h3>
+                <i>{row['RepidName']}</i> in {row['RepeatLocation']}<br>
                 <b>{row['Link']}</b><br>
                 <b>Normal Range:</b> {row['NormalRange']}<br>
             """
             if row['IntermediateRange'] != "-":
                 popup_content += f" <b>Intermediate Range:</b> {row['IntermediateRange']}<br>"
-            elif  row['FullMutationRange'] != "-":
+            elif row['FullMutationRange'] != "-":
                 popup_content += f" <b>Full Mutation Range:</b> {row['FullMutationRange']}"
             radius(row)
             folium.CircleMarker(
