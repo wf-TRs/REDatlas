@@ -8,7 +8,7 @@ Explore:
 - Integrated links to [GeneReviews](https://www.ncbi.nlm.nih.gov/books/NBK1116/) and [OMIM](https://www.omim.org/)
 - A Streamlit-based map interface for visual exploration
 
-[View the Interactive Map Here](https://map-url.com)
+[View the Interactive Map Here](https://atlasred.streamlit.app)
 
 ---
 
