@@ -117,7 +117,7 @@ If you use REDatlas in your research, please cite:
 
 ## Authors
 
-- **Iris Caglayan** — Primary developer, code author, and data curator
+- **[Iris Caglayan](https://github.com/iriscaglayan)** — Primary developer, code author, and data curator
 - **Indhu Shree Rajan Babu** — Project lead, data curation, and supervision
 
 
