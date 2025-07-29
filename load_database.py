@@ -13,9 +13,6 @@ def create_links(repid_df_cleaned):
 def clean_data():
     repid_df = pd.read_excel('repid.xlsx')
     repid_df_cleaned = repid_df.drop(columns=["DiseaseName"])
-
-    # Drop duplicate RepidName entries, keeping the first occurrence
-    repid_df_cleaned = repid_df_cleaned.drop_duplicates(subset="RepidName", keep="first").reset_index(drop=True)
     repid_df_cleaned['Link'] = repid_df_cleaned.apply(create_links, axis=1)
 
     disease_df = repid_df[['RepidName', 'DiseaseName']]
@@ -29,7 +26,7 @@ def clean_data():
 
 
     # Step 1: Connect to your SQLite database (use the same file name you used before)
-    conn = sqlite3.connect('data.sqlite')  # This creates or opens the .db file
+    conn = sqlite3.connect("repid.db")  # This creates or opens the .db file
     repid_df_cleaned.to_sql('Repid', conn, if_exists = "append", index = False)
 
     repids_from_db = pd.read_sql_query("SELECT RepID, RepidName FROM Repid", conn)

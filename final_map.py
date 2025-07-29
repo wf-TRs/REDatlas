@@ -1,3 +1,4 @@
+
 import streamlit as st
 import sqlite3
 import pandas as pd
@@ -6,9 +7,35 @@ from folium.plugins import MarkerCluster
 from folium import Popup
 from streamlit.components.v1 import html
 import requests
+from load_database import clean_data
+import os
 
 st.set_page_config(layout="wide")
+# --- Initialize DB ---
+def database_is_empty():
+    try:
+        conn = sqlite3.connect("repid.db")
+        cur = conn.cursor()
+        cur.execute("SELECT COUNT(*) FROM Repid")
+        count = cur.fetchone()[0]
+        conn.close()
+        return count == 0
+    except:
+        return True
 
+if database_is_empty():
+    clean_data()
+
+
+def load_summary_table(table_name):
+    tsv_files = {
+        "Summary Table": "summary_all.tsv",
+        "Population Table": "all_REDatlas.tsv"}
+    filename = tsv_files.get(table_name)
+
+    summary_path = os.path.join(filename)
+    if os.path.exists(summary_path):
+        return pd.read_csv(summary_path, sep="\t")
 # --- DB Connection ---
 def assign_colors(df,name):
     names = df[name].dropna().unique()
@@ -28,14 +55,13 @@ def show_color_legend(color_map):
     for name, color in color_map.items():
         st.markdown(
             f"<div style='display: flex; align-items: center;'>"
-            f"<div style='width: 15px; height: 15px; background-color: {color}; "
-            f"margin-right: 10px; border: 1px solid #000;'></div>"
+            f"<div style='width: 15px; height: 15px; background-color: {color}; margin-right: 10px; border: 1px solid #000;'></div>"
             f"<span>{name}</span></div>",
             unsafe_allow_html=True
         )
 
 def get_regions(repids, diseases):
-    conn = sqlite3.connect("data.sqlite")
+    conn = sqlite3.connect("repid.db")
     conditions = []
     params = []
     if repids:
@@ -85,24 +111,25 @@ def style_function(feature):
 # --- Streamlit UI ---
 st.title("Disease Region Explorer")
 
-conn = sqlite3.connect("data.sqlite")
+conn = sqlite3.connect("repid.db")
 repid_options = pd.read_sql_query("SELECT DISTINCT RepidName FROM Repid", conn)["RepidName"].dropna().unique().tolist()
 disease_options = pd.read_sql_query("SELECT DISTINCT DiseaseName FROM Disease", conn)["DiseaseName"].dropna().unique().tolist()
 conn.close()
 
 # --- Inputs ---
-col1, col2,col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     selected_repids = st.multiselect("Select Repid(s):", sorted(repid_options))
 with col2:
     selected_diseases = st.multiselect("Select Disease(s):", sorted(disease_options))
+with col3:
+    search_text = st.text_input("Search by typing (use comma):")
+with col4:
+    table_options = ["Choose options", "Summary Table", "Population Table"]
+    selected_table = st.selectbox("Tables:", table_options, index=0)
+    
 
-
-st.markdown("---")
-
-# Text search
-search_text = st.text_input("Or search by typing (use comma to separate multiple values):")
 
 # --- Parse text input ---
 typed_repids = []
@@ -146,8 +173,8 @@ def radius(row):
 
 if final_repids or final_diseases:
     color_map,name, results = get_regions(final_repids, final_diseases)
-    with col3:
-        show_color_legend(color_map)
+   
+    show_color_legend(color_map)
     
 
     if results.empty:
@@ -181,7 +208,8 @@ if final_repids or final_diseases:
                 color=color_map.get(row[name]),
                 fill=True,
                 fill_opacity=0.7,
-                popup= Popup(popup_content, max_width=700)
+                popup= Popup(popup_content, max_width=700),
+                tooltip=row['DiseaseName']
             ).add_to(m)
 
            
@@ -191,3 +219,9 @@ if final_repids or final_diseases:
 else:
     st.info("Please select a Repid, Disease, or enter a search term.")
 
+if selected_table != "Choose options":
+    summary_df = load_summary_table(selected_table)
+    if summary_df is not None:
+        st.dataframe(summary_df, use_container_width=True)
+    else:
+        st.warning("Selected table not found.")
