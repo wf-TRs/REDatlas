@@ -103,7 +103,7 @@ Repeat length thresholds presented in REDatlas have been curated from:
 
 If you use REDatlas in your research, please cite:
 
-> Indhu Shree Rajan Babu, Readman Chiu, Ben Weisburd, Iris Caglayan, Heidi L. Rehm, Inanc Birol, Jan M. Friedman. Population-Level Characterization of Disease-Associated Tandem Repeat Loci in Long-Read Diploid Assemblies: Integrating Genotype, Sequence, Phylogenetic, and Local Ancestry Analyses, and Linkage Disequilibrium Structure.
+> Indhu Shree Rajan Babu, Readman Chiu, Ben Weisburd, Iris Caglayan, Inanc Birol, Jan M. Friedman. Population Genomics of Disease-Associated Tandem Repeat Sequences.
 
 
 ## Authors
