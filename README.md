@@ -46,16 +46,7 @@ git clone https://github.com/wf-TRs/REDatlas.git
 cd REDatlas
 ```
 
-### 3. Set Up the Database
-
-Create and populate the SQLite database by running:
-
-```bash
-sqlite3 data.sqlite < schema.sql
-python load_database.py
-```
-
-### 4. Launch the Streamlit App
+### 3. Launch the Streamlit App
 
 Start the interactive REDatlas map with:
 
