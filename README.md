@@ -129,14 +129,14 @@ Contains curated summary statistics for **66 disease-associated tandem repeat lo
 **Key Columns:**
 - `Locus`: Gene name or genomic locus
 - `AlleleClass`: Classification (normal, intermediate, reduced-penetrance, full mutation)
-- `Avg_Non_Canonical_Base_[POP]`: Average percentage of non-canonical bases per population
-- `Frequency_[POP]`: Allele frequency in each superpopulation (AFR, AMR, EAS, EUR, SAS)
-- `Most_Freq_Motif_[POP]`: Most common motif sequence per population
-- `Most_Freq_Motif_%_[POP]`: Percentage of haplotypes with the most frequent motif
-- `Most_Freq_Repeat_[POP]`: Most common repeat count
-- `Most_Freq_Repeat_%_[POP]`: Percentage of haplotypes with the most frequent repeat count
-- `Repeat_Range_[POP]`: Range of repeat counts observed (min-max)
-- `Total_Allele_Count_[POP]`: Total number of alleles analyzed per population
+- `Avg_Non_Canonical_Base_[POP]`: Average percentage of non-canonical bases per superpopulation (AFR, AMR, EAS, EUR, SAS)
+- `Frequency_[POP]`: Allele frequency in each superpopulation
+- `Most_Freq_Motif_[POP]`: Most common motif sequence per superpopulation
+- `Most_Freq_Motif_%_[POP]`: Percentage of haplotypes with the most frequent motif in each superpopulation
+- `Most_Freq_Repeat_[POP]`: Most common repeat count in each superpopulation
+- `Most_Freq_Repeat_%_[POP]`: Percentage of haplotypes with the most frequent repeat count in each superpopulation
+- `Repeat_Range_[POP]`: Range of repeat counts observed (min-max) in each superpopulation
+- `Total_Allele_Count_[POP]`: Total number of alleles analyzed per superpopulation
 
 **Superpopulations:**
 - **AFR**: African
