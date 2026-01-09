@@ -130,12 +130,12 @@ with col2:
 with col3:
     search_text = st.text_input("Search by typing (use comma):")
 with col4:
-    st.markdown("**Tables**")
+    st.markdown("**Data Tables**")
     # Vertical native buttons (same-tab)
     if st.button("Summary Table", use_container_width=True):
         st.query_params.update({"view": "table", "table": "Summary Table"})
         st.rerun()
-    if st.button("Population Table", use_container_width=True):
+    if st.button("Per-Haplotype Tandem Repeat Table", use_container_width=True):
         st.query_params.update({"view": "table", "table": "Population Table"})
         st.rerun()
 
@@ -228,10 +228,10 @@ if view == "table":
     tsv_file = table_options[chosen_title]
 
     # Prefer uploaded copies if available
-    if chosen_title == "Summary Table":
+    if chosen_title == "Summary Table (summary_all.tsv)":
         if os.path.exists("/mnt/data/summary_all.tsv"):
             tsv_file = "/mnt/data/summary_all.tsv"
-    elif chosen_title == "Population Table":
+    elif chosen_title == "Population Table (all_REDatlas.tsv)":
         if os.path.exists("/mnt/data/all_REDatlas.tsv"):
             tsv_file = "/mnt/data/all_REDatlas.tsv"
 
@@ -249,7 +249,7 @@ if view == "table":
                    if c in df_table.columns]
 
     with st.expander("Filters", expanded=True):
-        text_query = st.text_input("Search text (Comma between variables)")
+        text_query = st.text_input("Search text (Comma between variables (e.g., ATXN1,ATXN2))")
 
         selected_filters = {}
         ff_cols = st.multiselect(
@@ -306,8 +306,9 @@ st.markdown("---")
 st.markdown("### Reference")
 st.markdown(
     """
-    Indhu Shree Rajan Babu, Readman Chiu, Ben Weisburd, Iris Caglayan, Inanc Birol, Jan M. Friedman.  
-    *Population Genomics of Disease-Associated Tandem Repeat Sequences.*
+    Indhu-Shree Rajan-Babu, Readman Chiu, Ben Weisburd, Iris Caglayan, Inanc Birol, Jan M. Friedman. 
+    Population-scale disease-associated tandem repeat analysis reveals locus and ancestry-specific insights. 
+    medRxiv 2025.10.11.25337795 (2025). doi: https://doi.org/10.1101/2025.10.11.25337795
     """,
     unsafe_allow_html=True
 )
