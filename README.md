@@ -2,7 +2,7 @@
 
 **REDatlas** is an interactive resource that visualizes the **geographic distribution** of **Repeat Expansion Disorders (REDs)** worldwide.
 
-[**🌍 View the Interactive Map Here**](https://atlasred.streamlit.app)
+[**View the Interactive Map Here**](https://atlasred.streamlit.app)
 
 ---
 
@@ -23,7 +23,7 @@
 
 ## Overview
 
-Repeat Expansion Disorders (REDs) are genetic conditions caused by abnormal expansions of tandem repeat sequences in the genome. REDatlas provides an intuitive platform to explore the global prevalence of REDs and findings from a comprehensive population-scale analysis of **known disease-associated tandem repeat loci** across **2,526 diverse haplotypes derived from long-read sequencing datasets**:
+Repeat Expansion Disorders (REDs) are genetic conditions caused by abnormal expansions of tandem repeat sequences in the genome. REDatlas provides an intuitive platform to explore the global prevalence of REDs and findings from a comprehensive population-scale analysis of **known disease-associated tandem repeat loci** across **2,530 diverse haplotypes derived from long-read sequencing datasets**:
 
 - **Geographic distribution** of REDs across global populations
 - **Disorder-specific repeat length thresholds** from peer-reviewed literature
@@ -39,12 +39,12 @@ Repeat Expansion Disorders (REDs) are genetic conditions caused by abnormal expa
 
 ## Features
 
-✨ **Interactive Map Visualization**
+**Interactive Map Visualization**
 - Color-coded markers showing the geographic distribution of specific disorders or repeat loci
 - Clickable markers with detailed clinical and genetic information
 - Dynamic filtering by disease name or repeat ID (RepID)
 
-📊 **Comprehensive Data Tables**
+**Comprehensive Data Tables**
 - **Summary Table**: Curated data for each superpopulation including:
   - Locus and allele class information
   - Average non-canonical base composition across populations (AFR, AMR, EAS, EUR, SAS)
@@ -55,12 +55,12 @@ Repeat Expansion Disorders (REDs) are genetic conditions caused by abnormal expa
   
 - **Population Table**: Detailed genotype, sequence composition, repeat structures, and local ancestry data for known disease-associated tandem repeat loci
 
-🔍 **Flexible Search & Filtering**
+**Flexible Search & Filtering**
 - Search by disease name, RepID, or genomic locus
 - Filter population data by allele class, superpopulation, and sample
 - Multi-criteria filtering for precise data queries
 
-🔗 **Integrated References**
+**Integrated References**
 - Direct links to authoritative clinical resources (GeneReviews, OMIM)
 - Curated bibliographic references for repeat length thresholds
 
@@ -109,13 +109,13 @@ The REDatlas map provides an intuitive interface for exploring the global distri
 3. Or simply type disease names or RepIDs in the **search box** (comma-separated for multiple terms)
 
 **What the markers tell you:**
-- **Geographic clustering** indicates regions where the disorder has been extensively studied or is more prevalent
-- **Marker size** reflects the frequency data available for that location—larger markers indicate higher disease prevalence
+- **Geographic location** indicates regions where the disorder has been reported
+- **Marker size** reflects the disease prevalence/frequency
 - **Multiple REDs in one location** will show overlapping markers in different colors
 
 **Interpreting repeat ranges:**
 - **Normal Range**: The number of repeats typically found in unaffected individuals
-- **Intermediate Range**: A gray zone where individuals may have some symptoms or increased risk; not all disorders have this range
+- **Intermediate Range**: A gray zone where individuals may have some symptoms or variable disease penetrance; not all disorders have this range
 - **Full Mutation Range**: The number of repeats that cause the full disease phenotype
 
 ## Data Tables
@@ -255,7 +255,7 @@ The population-level data presented in REDatlas is derived from our comprehensiv
 
 **Analysis Methodology:**
 - **66 disease-associated tandem repeat loci** characterized from long-read genome assemblies
-- **2,526 diverse haplotypes** from multiple long-read sequencing consortia:
+- **2,530 diverse haplotypes** from multiple long-read sequencing consortia:
   - 1000 Genomes Project ONT Consortium
   - Human Pangenome Reference Consortium (HPRC)
   - Noyvery et al. datasets
