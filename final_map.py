@@ -128,14 +128,14 @@ with col1:
 with col2:
     selected_diseases = st.multiselect("Select Disease(s):", sorted(disease_options))
 with col3:
-    search_text = st.text_input("Search by typing (use comma):")
+    search_text = st.text_input("Search by typing Repid (use comma, e.g., ATXN1,ATXN2):")
 with col4:
     st.markdown("**Data Tables**")
     # Vertical native buttons (same-tab)
-    if st.button("Summary Table", use_container_width=True):
+    if st.button("Summary Table (summary_all.tsv)", use_container_width=True):
         st.query_params.update({"view": "table", "table": "Summary Table"})
         st.rerun()
-    if st.button("Per-Haplotype Tandem Repeat Table", use_container_width=True):
+    if st.button("Per-Haplotype Tandem Repeat Table (all_REDatlas.tsv)", use_container_width=True):
         st.query_params.update({"view": "table", "table": "Population Table"})
         st.rerun()
 
