@@ -2,7 +2,7 @@
 
 **REDatlas** is an interactive resource that visualizes the **geographic distribution** of **Repeat Expansion Disorders (REDs)** worldwide.
 
-[**View the Interactive Map Here**](https://atlasred.streamlit.app)
+[**View the Interactive Map Here**](https://redatlas.wf-trs.app/)
 
 ---
 
